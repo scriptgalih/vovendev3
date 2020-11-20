@@ -47,9 +47,9 @@ boolean firstload = true;
 JSONObject json_set;
 
 void setup() {
-  size(1024, 600);
+  //size(1024, 600);
   noCursor();
-  //fullScreen();
+  fullScreen();
   font = createFont("Verdana", 10);
   cp5 = new ControlP5(this); 
   bgHome = loadImage("home.png");
