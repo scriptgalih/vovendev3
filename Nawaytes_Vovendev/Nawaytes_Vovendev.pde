@@ -47,9 +47,9 @@ boolean firstload = true;
 JSONObject json_set;
 
 void setup() {
-  //size(1024, 600);
-  noCursor();
-  fullScreen();
+  size(1024, 600);
+  //noCursor();
+  //fullScreen();
   font = createFont("Verdana", 10);
   cp5 = new ControlP5(this); 
   bgHome = loadImage("home.png");
@@ -60,10 +60,14 @@ void setup() {
   mainValue();
   //robot.mouseMove(0,0);
   firstload = false;
+  //graph_flow.hide();
+  //graph_volume.hide();
+  //graph_pressure.hide();
 }
 
 void draw() {
   background(bgHome);
   mainValue();
   serialStatus();
+  supText();
 }

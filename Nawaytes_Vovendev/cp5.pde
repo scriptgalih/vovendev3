@@ -50,17 +50,18 @@ void controlEvent(ControlEvent theControlEvent)
       json_set.setInt("f", SETFREQ);
       json_set.setInt("ie", SETIE);
     }
-    try {
-      // These coordinates are screen coordinates
-      int xCoord = 0;
-      int yCoord = 0;
+    
+    //try {
+    //  // These coordinates are screen coordinates
+    //  int xCoord = 0;
+    //  int yCoord = 0;
 
-      // Move the cursor
-      Robot robot = new Robot();
-      robot.mouseMove(xCoord, yCoord);
-    } 
-    catch (AWTException e) {
-    }
+    //  // Move the cursor
+    //  Robot robot = new Robot();
+    //  robot.mouseMove(xCoord, yCoord);
+    //} 
+    //catch (AWTException e) {
+    //}
   }
 }
 
