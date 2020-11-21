@@ -61,8 +61,8 @@ void serialEvent (Serial usbPort)
     String usbString = usbPort.readStringUntil ('\n');
     if (usbString == null)
       return;
-      
-      println(usbString); //--> for debuging
+
+    println(usbString); //--> for debuging
 
     float data[] = float(split(usbString, ','));
     //for (int sensorNum = 1; sensorNum < data.length; sensorNum++) { println(sensorNum + " " + data[sensorNum]);  } //--> for debuging
@@ -76,7 +76,7 @@ void serialEvent (Serial usbPort)
     //FLOW_=data[2];
     //VOLUME_=data[0];
     // exhale_time=data[4];
-    
+
     if (int(data[0]) == 59)
     {
       //print(data[3]);
@@ -87,6 +87,13 @@ void serialEvent (Serial usbPort)
       //  //FLOW_ = data[2];
       //  //VOLUME_ = data[3];
       updateGraph();
+    }
+    if (int(data[0]) == 77)
+    {
+
+      DISPVOLUME= data[1];
+      DISPPRESSUSE= data[2];
+      DISPOXYGEN= data[3];
     }
     //println(VOLUME_);
   }

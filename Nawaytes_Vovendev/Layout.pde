@@ -111,8 +111,8 @@ void mainValue() {
   fill(255, 255, 255);
   textAlign(CENTER);
   text(int(DISPVOLUME), 92, 203); //Volume
-  text(int(DISPOXYGEN), 92, 335); //Oxygen
-  text(int(DISPFLOW), 92, 467); //FLow
+  text(int(DISPPRESSUSE), 92, 335); //Oxygen
+  text(int(DISPOXYGEN), 92, 467); //FLow
 
   textSize(40);
   text(SETFREQ, 890, 221); //SET FREQUENCY

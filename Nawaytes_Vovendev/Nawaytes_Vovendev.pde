@@ -40,7 +40,7 @@ color white_ = color(255, 255, 255), black_ = color(0, 0, 0), pink_ = color(255,
 //ControlFont cf1 = new ControlFont(createFont("Arial",28,true),28);
 
 int SETFREQ=10, SETIE=3;
-float DISPVOLUME=0, DISPOXYGEN=0, DISPFLOW=0;
+float DISPVOLUME=0, DISPOXYGEN=0, DISPPRESSUSE=0;
 float val_graph_vol=0, val_graph_flow=0, val_graph_pressure=0;
 boolean firstload = true;
 
