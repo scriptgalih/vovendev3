@@ -66,9 +66,14 @@ void setup() {
 }
 
 void draw() {
+  try{
   background(bgHome);
   mainValue();
   serialStatus();
   //hoverDetection();
   //supText();
+  }
+  catch(Exception e){
+    
+  }
 }
