@@ -68,16 +68,19 @@ void sendSerial(String txt) {
 
 void controlEvent(ControlEvent theControlEvent)
 {
-  if (cp5.isMouseOver(cp5.getController("portComList"))) {
-    InitSerial(theControlEvent.getController().getValue());
-    return;
-  } else if (cp5.isMouseOver(cp5.getController("btn_add_f"))) {
-    if (SETFREQ>=15)
+  if (theControlEvent.isController()) {
+    if (firstload) {
       return;
-    SETFREQ+=1;
+    }
+    //println(theControlEvent.getController().getName()); //check event name
+    String controllerName = theControlEvent.getController().getName();
+    if (controllerName=="portComList") {
+      println("smile");
+      InitSerial(theControlEvent.getController().getValue());
+      return;
+    }
   }
 }
-
 
 void updateGraph() {
   graph_volume.push("val_volume", val_graph_vol);
@@ -86,7 +89,8 @@ void updateGraph() {
 }
 
 void hoverDetection() {
-
+  if (cp5.isMouseOver(cp5.getController("portComList" )))
+    return;
   if (cp5.isMouseOver(cp5.getController("btn_add_f" ))) {
     if (SETFREQ<15)
       SETFREQ+=1;
