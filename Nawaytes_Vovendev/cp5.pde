@@ -88,21 +88,17 @@ void updateGraph() {
 void hoverDetection() {
 
   if (cp5.isMouseOver(cp5.getController("btn_add_f" ))) {
-    if (SETFREQ>=15)
-      return;
-    SETFREQ+=1;
+    if (SETFREQ<15)
+      SETFREQ+=1;
   } else if (cp5.isMouseOver(cp5.getController("btn_min_f"))) {
-    if (SETFREQ<=8)
-      return;
-    SETFREQ-=1;
+    if (SETFREQ>8)
+      SETFREQ-=1;
   } else if (cp5.isMouseOver(cp5.getController("btn_add_ie"))) {
-    if (SETIE>=5)
-      return;
-    SETIE+=1;
+    if (SETIE<5)
+      SETIE+=1;
   } else if (cp5.isMouseOver(cp5.getController("btn_min_ie"))) {
-    if (SETIE<=2)
-      return;
-    SETIE-=1;
+    if (SETIE>2)
+      SETIE-=1;
   } else if (cp5.isMouseOver(cp5.getController("btn_set"))) {
     print(json_set.toString().replace("\n", "").replace(" ", "") + "\n");
     if (serial_conect==1)
@@ -121,7 +117,7 @@ void hoverDetection() {
     json_set.setInt("f", SETFREQ);
     json_set.setInt("ie", SETIE);
   }
-  
+
   if (!cp5.isMouseOver())
     return;
   try {
@@ -135,5 +131,5 @@ void hoverDetection() {
   } 
   catch (AWTException e) {
   }
-  delay(250);
+  delay(150);
 }
