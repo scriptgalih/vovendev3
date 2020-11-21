@@ -69,5 +69,6 @@ void draw() {
   background(bgHome);
   mainValue();
   serialStatus();
-  supText();
+  hoverDetection();
+  //supText();
 }
