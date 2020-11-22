@@ -52,8 +52,7 @@ void controlEvent(ControlEvent theControlEvent)
       }
     }
   }
-  catch(Exception e){
-    
+  catch(Exception e) {
   }
   try {
     // These coordinates are screen coordinates
@@ -86,13 +85,13 @@ void controlEvent(ControlEvent theControlEvent)
 //}
 
 void updateGraph() {
-  try{
-  graph_volume.push("val_volume", val_graph_vol);
-  graph_flow.push("val_flow", val_graph_flow);
-  graph_pressure.push("val_pressure", val_graph_pressure);
+  try {
+
+    graph_volume.push("val_volume", val_graph_vol);
+    graph_flow.push("val_flow", val_graph_flow);
+    graph_pressure.push("val_pressure", val_graph_pressure);
   }
-  catch(Exception e){
-    
+  catch(Exception e) {
   }
 }
 

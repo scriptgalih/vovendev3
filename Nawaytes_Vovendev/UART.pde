@@ -65,6 +65,9 @@ void serialEvent (Serial usbPort)
     println(usbString); //--> for debuging
 
     float data[] = float(split(usbString, ','));
+    String split_string[] = split(usbString, ',');
+    if (split_string[0] == null)
+      return;
     //for (int sensorNum = 1; sensorNum < data.length; sensorNum++) { println(sensorNum + " " + data[sensorNum]);  } //--> for debuging
     /*
     Format paket
@@ -79,6 +82,8 @@ void serialEvent (Serial usbPort)
 
     if (int(data[0]) == 59)
     {
+      if (split_string[1] == null || split_string[2] == null || split_string[3] == null)
+        return;
       //print(data[3]);
       //println("\t OK masuk");
       val_graph_vol= data[1];
