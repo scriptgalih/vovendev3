@@ -1,3 +1,29 @@
+void textfieldLayout() {
+  noStroke();
+  txt_name = cp5.addTextfield("txt_name")
+    .setFont(createFont("arial", 23))
+    .setPosition(195, 121)
+    .setSize(486, 38)
+    .setFocus(true)
+    .setColor(color(#FFFFFF))
+    .setAutoClear(false)
+
+    ;
+  txt_name.getColor().setBackground(color(#000000, 0));
+  txt_name.setLabel(" ");
+
+  txt_age = cp5.addTextfield("txt_age")
+    .setFont(font)
+    .setPosition(195, 221)
+    .setSize(486, 38)
+    .setFocus(true)
+    .setColor(color(#FFFFFF))
+
+    ;
+  txt_age.getColor().setBackground(color(#000000, 0));
+  txt_age.setLabel(" ");
+}
+
 void buttonLayout() {
   noStroke();
   btn_start = cp5.addButton("btn_start")
@@ -71,7 +97,7 @@ void graphLayout() {
     .setRange(0, 600)
     .setView(Chart.LINE) // use Chart.LINE, Chart.PIE, Chart.AREA, Chart.BAR_CENTERED
     ;
-  graph_volume.getColor().setBackground(color(#191F27, 8));
+  graph_volume.getColor().setBackground(color(#191F27, 0));
   graph_volume.setCaptionLabel(" ");
 
   graph_volume.addDataSet("val_volume");
@@ -85,20 +111,20 @@ void graphLayout() {
     .setRange(0, 60)
     .setView(Chart.LINE) // use Chart.LINE, Chart.PIE, Chart.AREA, Chart.BAR_CENTERED
     ;
-  graph_pressure.getColor().setBackground(color(#191F27, 8));
+  graph_pressure.getColor().setBackground(color(#191F27, 0));
   graph_pressure.setCaptionLabel(" ");
 
   graph_pressure.addDataSet("val_pressure");
   graph_pressure.setColors("val_pressure", color(yellow_), color(yellow_));
   graph_pressure.updateData("val_pressure", new float[1000]);
 
-  graph_flow = cp5.addChart("graph_flow")
+  graph_flow = cp5.addChart("chart_flow")
     .setPosition(185, 367)
     .setSize(570, 130)
-    .setRange(-20, 40)
+    .setRange(-20, 60)
     .setView(Chart.LINE) // use Chart.LINE, Chart.PIE, Chart.AREA, Chart.BAR_CENTERED
     ;
-  graph_flow.getColor().setBackground(color(#191F27, 8));
+  graph_flow.getColor().setBackground(color(#191F27, 0));
   graph_flow.setCaptionLabel(" ");
 
   graph_flow.addDataSet("val_flow");
@@ -128,7 +154,7 @@ void supText() {
   text("Volume(mL)", possuptextx, possuptexty); //Volume
   text("Pressure(cmH2O)", possuptextx, possuptexty + 132); //Oxygen
   text("Flow(L/min)", possuptextx, possuptexty + (132*2)); //FLow
-  
+
   textSize(15);
   fill(255, 255, 255);
   textAlign(LEFT);
@@ -139,8 +165,57 @@ void supText() {
   text(600, possuptextxgtop, possuptextygtop); //Volume
   text(60, possuptextxgtop, possuptextygtop + 132); //Oxygen
   text(40, possuptextxgtop, possuptextygtop + (132*2)); //FLow
-  
+
   text(0, possuptextxgbot, possuptextygbot); //Volume
   text(0, possuptextxgbot, possuptextygbot + 132); //Oxygen
   text(-20, possuptextxgbot, possuptextygbot + (132*2)); //FLow
+}
+
+void setupTab() {
+  cp5.addTab("info")
+    ;
+  cp5.getTab("default")
+    .activateEvent(true)
+    .setLabel("Home")
+    .setId(1)
+    .setHeight(40)
+    .setSize(100, 40)
+    .setColorBackground(color(#993B85, 8))
+    .setColorLabel(color(255))
+    ;
+  cp5.getTab("info")
+    .activateEvent(true)
+    .setLabel("info")
+    .setId(1)
+    .setHeight(40)
+    .setSize(100, 40)
+    .setColorBackground(color(#993B85, 8))
+    .setColorLabel(color(255))
+    ;
+
+  cp5.getTab("info")
+    .activateEvent(true)
+    .setLabel("Info")
+    .setId(2)
+    .setHeight(40)
+    .setSize(100, 40)
+    .setColorBackground(color(#993B85, 8))
+    .setColorLabel(color(255))
+    ;
+
+  cp5.getController("chart_volume").moveTo("default");
+  cp5.getController("chart_pressure").moveTo("default");
+  cp5.getController("chart_flow").moveTo("default");
+
+  cp5.getController("btn_start").moveTo("default");
+  cp5.getController("btn_set").moveTo("default");
+  cp5.getController("btn_stop").moveTo("default");
+
+  cp5.getController("btn_add_f").moveTo("default");
+  cp5.getController("btn_min_f").moveTo("default");
+  cp5.getController("btn_add_ie").moveTo("default");
+  cp5.getController("btn_min_ie").moveTo("default");
+
+  cp5.getController("txt_name").moveTo("info");
+  cp5.getController("txt_age" ).moveTo("info");
 }

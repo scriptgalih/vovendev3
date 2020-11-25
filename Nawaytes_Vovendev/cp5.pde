@@ -4,6 +4,17 @@ void sendSerial(String txt) {
 
 void controlEvent(ControlEvent theControlEvent)
 {
+  if (theControlEvent.isTab()) {
+    //println("got an event from tab : "+theControlEvent.getTab().getName()+" with id "+theControlEvent.getTab().getId());
+    
+    if(theControlEvent.getTab().getId() == 1){
+      isHome = true;
+      bg = loadImage("home.png");
+    }else if(theControlEvent.getTab().getId() == 2){
+      isHome = false;
+      bg = loadImage("userinfo.png");
+    }
+  }
   try {
     if (theControlEvent.isController()) {
       if (firstload) {
@@ -54,17 +65,17 @@ void controlEvent(ControlEvent theControlEvent)
   }
   catch(Exception e) {
   }
-  try {
-    // These coordinates are screen coordinates
-    int xCoord = 0;
-    int yCoord = 0;
+  //try {
+  //  // These coordinates are screen coordinates
+  //  int xCoord = 0;
+  //  int yCoord = 0;
 
-    // Move the cursor
-    Robot robot = new Robot();
-    robot.mouseMove(xCoord, yCoord);
-  } 
-  catch (AWTException e) {
-  }
+  //  // Move the cursor
+  //  Robot robot = new Robot();
+  //  robot.mouseMove(xCoord, yCoord);
+  //} 
+  //catch (AWTException e) {
+  //}
 }
 
 
@@ -94,6 +105,8 @@ void updateGraph() {
   catch(Exception e) {
   }
 }
+
+
 
 //void hoverDetection() {
 //  if (cp5.isMouseOver(cp5.getController("portComList" )))
